@@ -1,0 +1,25 @@
+mysql> show tables;
++------------------------------------+
+| Tables_in_AirysEsqueda0512$default |
++------------------------------------+
+| AUTHORS                            |
+| BOOKS                              |
+| CATEGORIES                         |
+| GameScores                         |
+| HockeyGame                         |
+| HockeyTeam                         |
+| HockeyTeamPlayer                   |
+| HokeyGame                          |
+| PlayoffRound                       |
+| RondStats                          |
+| RoundStats                         |
+| USUARIOS                           |
+| User                               |
+| UserInfo                           |
+| UserScorePicks                     |
+| UserStatsPicks                     |
+| detalle_horario                    |
+| horario                            |
+| plantilla_detalle_horario          |
++------------------------------------+
+19 rows in set (0.00 sec)
