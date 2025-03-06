@@ -1,0 +1,25 @@
+mysql> DESC USUARIOS;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| NOMBRES      | varchar(25) | YES  |     | NULL    |       |
+| APELLIDOS    | varchar(25) | YES  |     | NULL    |       |
+| DEPARTAMENTO | varchar(25) | YES  |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+mysql> SELECT * from USUARIOS;
++----------+------------+--------------+
+| NOMBRES  | APELLIDOS  | DEPARTAMENTO |
++----------+------------+--------------+
+| Airys    | Rodriguez  | RH           |
+| Carlos   | Santos     | Galleta      |
+| Luis     | Najera     | Pelota       |
+| Sofia    | Rodriguez  | Alberca      |
+| Jonathan | Sequeda    | LOL          |
+| Elías    | Sanches    | Teclado      |
+| Fernanda | Plascencia | Pez          |
+| Alaia    | Montes     | Rosa         |
+| Maruchan | Pines      | Pozo         |
+| Dipper   | Pines      | Diario       |
++----------+------------+--------------+
+10 rows in set (0.00 sec)
