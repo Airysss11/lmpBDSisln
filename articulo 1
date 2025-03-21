@@ -1,0 +1,13 @@
++------+-----------+------+-------------+
+| id   | Articulos | id   | Articulos   |
++------+-----------+------+-------------+
+|    1 | Azucar    |    1 | Azucar      |
+|    2 | Pan       |    2 | Pan         |
+|    3 | Jugo      | NULL | NULL        |
+|    4 | Refresco  | NULL | NULL        |
+|    5 | Harina    | NULL | NULL        |
+| NULL | NULL      |    3 | Mantequilla |
+| NULL | NULL      |    4 | Queso       |
+| NULL | NULL      |    5 | Manzana     |
++------+-----------+------+-------------+
+8 rows in set (0.00 sec)
