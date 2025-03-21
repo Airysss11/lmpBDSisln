@@ -1,0 +1,13 @@
++------+-----------+------+--------------+
+| id   | articulos | id   | articulos    |
++------+-----------+------+--------------+
+|    1 | Azucaar   |    1 | Azucaar      |
+|    2 | Paan      |    2 | Paan         |
+|    3 | Jugoo     | NULL | NULL         |
+|    4 | Refreco   | NULL | NULL         |
+|    5 | Harinaa   | NULL | NULL         |
+| NULL | NULL      |    3 | Mantequillaa |
+| NULL | NULL      |    4 | Quesoo       |
+| NULL | NULL      |    5 | Manzanaa     |
++------+-----------+------+--------------+
+8 rows in set (0.00 sec)
