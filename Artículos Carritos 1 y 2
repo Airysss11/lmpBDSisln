@@ -11,3 +11,27 @@
 | NULL | NULL      |    5 | Manzanaa     |
 +------+-----------+------+--------------+
 8 rows in set (0.00 sec)
+
+
+mysql> SELECT * from carrito1;
++----+-----------+
+| id | Articulos |
++----+-----------+
+|  1 | Azucar    |
+|  2 | Pan       |
+|  3 | Jugo      |
+|  4 | Refresco  |
+|  5 | Harina    |
++----+-----------+
+5 rows in set (0.00 sec)
+mysql> SELECT * from carrito2;
++----+-------------+
+| id | Articulos   |
++----+-------------+
+|  1 | Azucar      |
+|  2 | Pan         |
+|  3 | Mantequilla |
+|  4 | Queso       |
+|  5 | Manzana     |
++----+-------------+
+5 rows in set (0.00 sec)
