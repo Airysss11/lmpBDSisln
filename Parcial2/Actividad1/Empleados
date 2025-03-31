@@ -30,3 +30,29 @@ mysql> SELECT * from Empleadoss;
 |        6006 |       2002 | Administrador |
 +-------------+------------+---------------+
 6 rows in set (0.00 sec)
+
+
+
+CREATE TABLE Empleadoss (
+	id_empleado INT(16) NOT NULL,
+    id_gerente INT(16) NULL,
+    Puesto VARCHAR(16) NOT NULL,
+	PRIMARY KEY(id_empleado, Puesto)
+);
+
+INSERT INTO Empleadoss VALUES 
+(1001,0,'Presidente'),
+(2002,'1001','Director'),
+(3003,'1001','Gerente'),
+(4004,'2002','Ingeniero'),
+(5005,'2002','Contador'),
+(6006,'2002','Administrador');
+
+SELECT e.id_empleado, e.id_gerente, e.Puesto,
+CASE 
+WHEN e.id_gerente IS 0 THEN 0
+WHEN e.id_gerente = 1001 THEN 1
+ELSE 2
+END AS Nivel 
+FROM Empleadoss e
+ORDER BY Nivel, id_gerente;
