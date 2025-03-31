@@ -17,3 +17,18 @@ mysql> SELECT * from Predicadoos;
 |       1001 |        4 | CDMX           | $321  |
 +------------+----------+----------------+-------+
 3 rows in set (0.00 sec)
+
+
+
+
+CREATE TABLE Predicadoos (
+    id_cliente INT(16) NOT NULL,
+    id_Orden INT(16) NOT NULL,
+    Estado_Destino VARCHAR(16),
+    Costo VARCHAR(16)
+);
+
+INSERT INTO Predicadoos VALUES
+(1001,'2','CDMX','$400'),
+(1001,'3','CDMX','$545'),
+(1001,'4','CDMX','$321');
