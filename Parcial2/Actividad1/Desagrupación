@@ -1,0 +1,41 @@
+CREATE TABLE Desagrupacionn(
+    Prodructo VARCHAR(16),
+    Cantidad INT(1) NOT NULL
+);
+
+INSERT INTO Desagrupacionn VALUES
+('Lapiz', '1'),
+('Lapiz', '1'),
+('Lapiz', '1'),
+('Borrador', '1'),
+('Borrador', '1'),
+('Borrador', '1'),
+('Cuaderno', '1'),
+('Cuaderno', '1');
+
+
+mysql> INSERT INTO Desagrupacionn VALUES
+    -> ('Lapiz', '1'),
+    -> ('Lapiz', '1'),
+    -> ('Lapiz', '1'),
+    -> ('Borrador', '1'),
+    -> ('Borrador', '1'),
+    -> ('Borrador', '1'),
+    -> ('Cuaderno', '1'),
+    -> ('Cuaderno', '1');
+Query OK, 8 rows affected (0.01 sec)
+Records: 8  Duplicates: 0  Warnings: 0
+mysql> SELECT * from Desagrupacionn;
++-----------+----------+
+| Prodructo | Cantidad |
++-----------+----------+
+| Lapiz     |        1 |
+| Lapiz     |        1 |
+| Lapiz     |        1 |
+| Borrador  |        1 |
+| Borrador  |        1 |
+| Borrador  |        1 |
+| Cuaderno  |        1 |
+| Cuaderno  |        1 |
++-----------+----------+
+8 rows in set (0.00 sec)
