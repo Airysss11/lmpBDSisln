@@ -1,0 +1,28 @@
+CREATE TABLE Inicio (
+    inicio DATE,
+    final DATE
+);
+
+INSERT INTO Inicio (inicio) VALUES
+('01/01/2025'),
+('01/03/2025'),
+('01/10/2025'),
+('01/12/2025'),
+('01/15/2025');
+
+CREATE TABLE Final (
+    inicio DATE,
+    final DATE
+);
+
+INSERT INTO Final (final) VALUES
+('01/05/2025'),
+('01/09/2025'),
+('01/11/2025'),
+('01/16/2025'),
+('01/19/2025');
+
+SELECT inicio, final FROM Inicio
+UNION
+SELECT inicio, final FROM Final
+ORDER BY inicio;
