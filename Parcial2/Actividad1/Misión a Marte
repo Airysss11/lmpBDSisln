@@ -1,0 +1,28 @@
+CREATE TABLE Mision_a_Marte (
+    id_candidato INT(18) NOT NULL,
+    Descripcion VARCHAR(18) NOT NULL,
+    PRIMARY KEY(id_candidato, Descripcion)
+);
+
+INSERT INTO Mision_a_Marte VALUES
+(1001,'Geologo'),
+(1001,'Astronomo'),
+(1001,'Bioquimico'),
+(1001,'Tecnico'),
+(2002,'Cirujano'),
+(2002,'Mecanico'),
+(3002,'Geologo'),
+(3003,'Geologo'),
+(3003,'Astronomo'),
+(4004,'Ingeniero');
+
+SELECT
+    id_candidato
+    FROM *
+    Mision_a_Marte
+WHERE
+    Descripcion IN ('Geologo','Astronomo','Bioquimico')
+GROUP BY    
+    id_candidato
+HAVING
+    COUNT(DISTINCT Descripcion) = 3;
