@@ -1,0 +1,23 @@
+CREATE TABLE EtapasDeDesarrolloo (
+    Desarrollo VARCHAR(16) NOT NULL,
+    Etapa INT(16) NOT NULL,
+    Finalizado VARCHAR(16) NULL,
+    UNIQUE(Finalizado)
+);
+
+INSERT INTO EtapasDeDesarrolloo VALUES 
+('RestAPI',1,'01/02/2024'),
+('RestAPI',2,'30/05/2024'),
+('RestAPI',3,'29/06/2024'),
+('Web',1,'28/10/2024'),
+('Web',2,'20/11/2024'),
+('Web',3,'NULL'),
+('App',1,'30/01/2025'),
+('App',2,'NULL');
+
+SELECT  
+    Desarrollo
+FROM
+    EtapasDeDesarrolloo
+WHERE
+    Finalizado IS NULL;
