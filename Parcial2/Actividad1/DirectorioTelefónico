@@ -1,0 +1,24 @@
+CREATE TABLE DirectorioTelefonico (
+    CustomerID INT(18) NOT NULL,
+    TypePhone VARCHAR(15) NOT NULL,
+    Number VARCHAR(15) NOT NULL,
+    PRIMARY KEY(number)
+);
+
+INSERT INTO DirectorioTelefonico VALUES
+(1001,'CELULAR','333-897-5421'),
+(1001,'TRABAJO','333-897-6542'),
+(1001,'CASA','333-698-9874'),
+(2002,'CELULAR','333-963-6544'),
+(2002,'TRABAJO','333-812-9856'),
+(3003,'CELULAR','333-987-6541');
+
+SELECT
+    CustomerID,
+    MAX(CASE WHEN TypePhone = 'CELULAR' THEN Number END) AS CELULAR,
+    MAX(CASE WHEN TypePhone = 'TRABAJO' THEN Number END) AS TRABAJO,
+    MAX(CASE WHEN TypePhone = 'CASA' THEN Number END) AS CASA
+FROM *
+    DirectorioTelefonico
+GROUP BY
+    CustomerID;
