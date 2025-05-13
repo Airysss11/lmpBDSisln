@@ -1,0 +1,19 @@
+CREATE TABLE Ventas_del_AñoAnterior (
+    Año INT,
+    Cantidad INT
+);
+
+INSERT INTO Ventas_del_AñoAnterior (Año, Cantidad) VALUES
+(2025, 352645),
+(2024, 165565),
+(2024, 254654),
+(2023, 159521),
+(2023, 251696),
+(2023, 111894);
+
+SELECT
+    Año,
+    SUM(Cantidad) AS Total
+FROM Ventas_del_AñoAnterior
+GROUP BY Año
+ORDER BY Año DESC;
