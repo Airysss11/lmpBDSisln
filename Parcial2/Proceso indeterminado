@@ -1,0 +1,36 @@
+CREATE TABLE RegistroDe_Proceso_Indeterminado (
+    Flujo VARCHAR(16),
+    Paso INT(16),
+    Estado VARCHAR(18)
+);
+
+
+INSERT INTO RegistroDe_Proceso_Indeterminado VALUES
+('Alpha', 1, 'Error'),
+('Alpha', 2, 'Finalizado'),
+('Alpha', 3, 'Corriendo'),
+('Bravo', 1, 'Finalizado'),
+('Bravo', 2, 'Finalizado'),
+('Charlie', 1, 'Corriendo'),
+('Charlie', 2, 'Corriendo'),
+('Delta', 1, 'Error'),
+('Delta', 2, 'Error'),
+('Echo', 1, 'Corriendo'),
+('Echo', 2, 'Corriendo');
+
+
+SELECT
+    Flujo,
+    CASE
+        WHEN COUNT(DISTINCT Estado) = 1 THEN
+MIN(Estado)
+    WHEN SUM(CASE WHEN Estado = 'Error' THEN 1
+ELSE 0 END) > 0
+    AND SUM(CASE WHEN Estado IN('Finalizado',
+'Corriendo')THEN 1 ELSE 0 END) > 0 THEN 'Indeterminado'
+    ELSE'Corriendo'
+    END AS Estado
+FROM
+    RegistroDe_Proceso_Indeterminado
+GROUP BY
+    Flujo;
