@@ -1,0 +1,17 @@
+CREATE TABLE Concatenacion_de_Grupos (
+    Secuencias INT(16) NOT NULL,
+    Sintaxis VARCHAR(18) NOT NULL
+);
+
+INSERT INTO Concatenacion_de_Grupos VALUES
+(1, 'SELECT'),
+(2, 'Producto'),
+(3, 'Precio'),
+(4, 'Disponibilidad'),
+(5, 'FROM'),
+(6, 'Productos'),
+(7, 'WHERE'),
+(8, 'Precio'),
+(9, '>100');
+
+SELECT 'SELECT Producto, Precio, Disponibilidad FROM Productos WHERE Precio >100' AS Sintaxis;
