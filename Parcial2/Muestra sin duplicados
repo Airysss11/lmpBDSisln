@@ -1,0 +1,4 @@
+CREATE TABLE muestra_sin_duplicados (valor INTEGER);
+INSERT INTO muestra VALUES (1), (1), (2), (3), (3), (4);
+
+SELECT * FROM muestra_sin_duplicados;
