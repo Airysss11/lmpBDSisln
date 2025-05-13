@@ -1,0 +1,20 @@
+CREATE TABLE MarcadoresGlobales (
+    JugadorA INT,
+    JugadorB INT,
+    JugadorC INT
+);
+
+INSERT INTO MarcadoresGlobales VALUES
+(1001, 2002, 150),
+(1001, 2002, 150),
+(3003, 4004, 15),
+(3003, 4004, 40),
+(4004, 3003, 125);
+
+SELECT JugadorA AS Jugador, SUM(Score) AS TotalScore
+FROM MarcadoresGlobales
+GROUP BY JugadorA
+UNION ALL 
+SELECT JugadorB AS Jugador, SUM(Score) AS TotalScore
+GROUP BY PlayerB
+ORDER BY Jugador;
