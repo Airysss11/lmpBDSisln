@@ -1,0 +1,37 @@
+CREATE TABLE Promedio_de_VentasMensuales (
+    Id_Orden INT,
+    Id_Cliente INT,
+    Fecha INT,
+    Total INT,
+    Estado VARCHAR
+);
+
+INSERT into Promedio_de_VentasMensuales VALUES
+(1, 1001, 01/01/2025, 100, 'JAL'),
+(2, 1001, 01/01/2025, 150, 'JAL'),
+(3, 1001, 01/01/2025, 75, 'JAL'),
+(4, 1001, 02/01/2025, 100, 'JAL'),
+(5, 1001, 03/01/2025, 100, 'JAL'),
+(6, 2002, 03/01/2025, 75, 'JAL'),
+(7, 2002, 02/01/2025, 150, 'JAL'),
+(8, 3003, 01/01/2025, 100, 'CDMX'),
+(9, 3003, 02/01/2025, 100, 'CDMX'),
+(10, 3003, 03/01/2025, 100, 'CDMX'),
+(11, 4004, 04/01/2025, 100, 'CDMX'),
+(12, 4004, 05/01/2025, 50, 'CDMX'),
+(13, 4004, 05/01/2025, 100, 'CDMX');
+
+SELECT DISTINCT Estado
+FROM Promedio_de_VentasMensuales v 
+WHERE NOT EXISTS (
+    SELECT 1
+    FROM (
+        SELECT Id_Cliente,
+                DATE_TRUNC('month', Fecha) AS Mes,
+                AVG(Total) AS PromedioMensual 
+            FROM Promedio_de_VentasMensuales
+            GROUP BY Id_Cliente, DATE_TRUNC('month', Fecha)
+            HAVING AVG(Toltal) <= 100
+    ) pm 
+    WHERE pm.id_Cliente = v.Id_Cliente 
+);
