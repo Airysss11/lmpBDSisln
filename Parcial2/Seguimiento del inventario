@@ -1,0 +1,18 @@
+CREATE TABLE Seguimento_del_Inventario (
+    Fecha INT(20),
+    Ajuste INT(18) NOT NULL 
+);
+
+INSERT INTO Fecha VALUES 
+('03/01/2025', '100'),
+('04/01/2025', '75'),
+('05/01/2025', '-150'),
+('06/01/2025', '50'),
+('07/01/2025', '-70');
+
+SELECT 
+    Fecha,
+    Ajuste,
+    SUM(Ajuste) OVER (ORDER BY Fecha ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS Inventario 
+FROM 
+    AjustesInventario;
