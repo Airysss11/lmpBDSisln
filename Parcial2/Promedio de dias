@@ -1,0 +1,40 @@
+CREATE TABLE Promedio_de_Dias (
+    Desarrollo VARCHAR(18) NOT NULL,
+    Terminacion INT(18) NOT NULL
+);
+
+INSERT INTO Promedio_de_Dias VALUES
+('RestAPI', '06/01/2024'),
+('RestAPI', '06/14/2024'),
+('RestAPI', '06/15/2024'),
+('Web', '06/01/2024'),
+('Web', '06/02/2024'),
+('Web', '06/19/2024'),
+('App', '06/01/2024'),
+('App', '05/15/2024'),
+('App', '06/30/2024');
+
+WITH Diferencias AS (
+    SELECT
+        Desarrollo,
+        Terminacion,
+        LAG(Terminacion) OVER (PARTITION BY Desarrollo ORDER BY Terminacion) AS FechaAnterior
+    FROM 
+        Promedio_de_Dias
+),
+Intervalos AS (
+    SELECT
+        Desarrollo,
+        DATEDIFF(Terminacion, FechaAnterior) AS Dias
+    FROM
+        Diferencias
+    WHERE 
+        FechaAnterior IS NOT NULL
+)
+SELECT 
+    Desarrollo,
+    Round(AVG(Dias)) AS Promedio
+FROM 
+    Intervalos 
+Group BY 
+    Desarrollo;
