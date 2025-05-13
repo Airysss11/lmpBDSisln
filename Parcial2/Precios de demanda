@@ -1,0 +1,20 @@
+CREATE TABLE Precios_de_Demanda (
+    id_producto INT,
+    fecha INT,
+    precio INT
+);
+
+INSERT INTO Precios_de_Demanda VALUES 
+(1001, 01/01/2025, 19.99),
+(1001, 04/15/2025, 59.99),
+(1001, 06/08/2025, 79.99),
+(2002, 04/17/2025, 39.99),
+(2002, 05/19/2025, 59.99);
+
+SELECT p.id_producto, p.fecha, p.precio 
+FROM productos p 
+WHERE p.fecha = ( 
+    SELECT MAX(p2.fecha) 
+    FROM productos p2
+    WHERE p2.id_producto = p.id_producto 
+);
