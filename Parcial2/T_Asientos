@@ -1,0 +1,14 @@
+CREATE TABLE T_asientos (
+num_asientos INTEGER
+);
+
+INSERT INTO T_asientos VALUES 
+(7),(13),(14),(15),(27),(28),(29),(31),(32),(33),(34),(35),(52),(53),(54);
+
+SELECT
+    MIN(num_asientos) AS inicio_disponible,
+    MAX(num_asientos) AS fin_disponible,
+    SUM(num_asientos) AS total_disponible,
+    SUM(CASE WHEN num_asientos % 2 != 0 THEN 1 ELSE 0 END) AS pares,
+    SUM(CASE WHEN num_asientos % 2 != 0 THEN 1 ELSE 0 END) AS impares
+    FROM T_asientos;
