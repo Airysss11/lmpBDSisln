@@ -1,0 +1,43 @@
+CREATE TABLE Cuente_las_Agrupaciones (
+    Paso INT PRIMARY KEY,
+    Estado VARCHAR(18)
+);
+
+INSERT INTO Cuente_las_Agrupaciones (Paso, Estado) VALUES 
+(1, 'Paso'),
+(2, 'Paso'),
+(3, 'Paso'),
+(4, 'Paso'),
+(5, 'Fallo'),
+(6, 'Fallo'),
+(7, 'Fallo'),
+(8, 'Fallo'),
+(9, 'Fallo'),
+(10, 'Paso'),
+(11, 'Paso'),
+(12, 'Paso');
+
+WITH marcados AS (
+    SELECT 
+        Paso,
+        Estado,
+        SUM(cambio) OVER (ORDER BY Paso) AS grupo
+    FROM (
+        SELECT
+            Paso,
+            Estado,
+            CASE
+                WHEN LAG(Estado) OVER (ORDER BY Paso) = Estado THEN 0
+                ELSE 1
+            END AS cambio
+        FROM Cuente_las_Agrupaciones
+    ) AS cambios
+)
+SELECT 
+    MIN(Paso) AS Paso_min,
+    MAX(Paso) AS Paso_max,
+    Estado,
+    COUNT(*) AS Cuenta 
+FROM marcados
+GROUP BY grupo, Estado 
+GROUP BY Paso_min;
