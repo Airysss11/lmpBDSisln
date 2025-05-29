@@ -1,0 +1,40 @@
+mysql> CREATE TABLE Primero_y_Ultimo (
+    ->     Id INT PRIMARY KEY,
+    ->     Trabajo VARCHAR(20),
+    ->     Misiones INT
+    -> );
+Query OK, 0 rows affected (0.19 sec)
+mysql> INSERT INTO Primero_y_Ultimo (Id, Trabajo, Misiones) VALUES 
+    -> (1, 'Navegador', 6),
+    -> (2, 'Navegador', 12),
+    -> (3, 'Navegador', 17),
+    -> (4, 'Geologo', 21),
+    -> (5, 'Geologo', 9),
+    -> (6, 'Geologo', 8),
+    -> (7, 'Tecnico', 13),
+    -> (8, 'Tecnico', 2),
+    -> (9, 'Tecnico', 7);
+Query OK, 9 rows affected (0.03 sec)
+Records: 9  Duplicates: 0  Warnings: 0
+mysql> SELECT 
+    ->     t.Trabajo,
+    ->     (SELECT Id 
+    ->      FROM Primero_y_Ultimo
+    ->      WHERE Trabajo = t.Trabajo 
+    ->      ORDER BY Misiones DESC 
+    ->      LIMIT 1) AS Experimentados,
+    ->     (SELECT Id 
+    ->      FROM Primero_y_Ultimo 
+    ->      WHERE Trabajo = t.Trabajo 
+    ->      ORDER BY Misiones ASC 
+    ->      LIMIT 1) AS Menos_Experimentados
+    -> FROM 
+    ->     (SELECT DISTINCT Trabajo FROM Primero_y_Ultimo) t;
++-----------+----------------+----------------------+
+| Trabajo   | Experimentados | Menos_Experimentados |
++-----------+----------------+----------------------+
+| Navegador |              3 |                    1 |
+| Geologo   |              4 |                    6 |
+| Tecnico   |              7 |                    8 |
++-----------+----------------+----------------------+
+3 rows in set (0.00 sec)
